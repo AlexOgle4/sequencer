@@ -61,19 +61,21 @@ function logSequence(seq) {
   })
 
   seq.tracks.forEach((track) => {
+    // console.log('track', track)
     let line = track.label.padEnd(longestLabelLength + 2, ' ')
 
     track.steps.forEach((step) => {
+      // console.log('==> step', step)
       if (step.velocity > 0) {
-        line = line + 'x'
+        line = line + track.instrument.charAt(0)
       } else {
         line = line + '-'
       }
     })
-
     console.log(line)
   })
 
+  //
   // it should look something like this:
   console.log('')
   console.log('-- SHOULD LOOK LIKE --')
